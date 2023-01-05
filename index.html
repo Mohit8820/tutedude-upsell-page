@@ -1,0 +1,2007 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope&display=swap"
+      rel="stylesheet"
+    />
+   
+
+    <link rel="stylesheet" href="feesbackassets/packstyle.css?b=3" />
+    <meta name="google-signin-client_id" content="50481374525-15e1sfj7hb606703erthsb3tis8j1jtk.apps.googleusercontent.com">
+   
+    <script src="https://apis.google.com/js/platform.js" async defer></script>  
+
+    <script src="../javascript/category.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    <link rel="shortcut icon" href="../Tutu.png" />
+  
+
+
+    <title>Upsell page</title>
+
+  </head>
+  <body>
+    
+     <!-- <a class="enroll-now">
+      Enroll Now
+    </a>  -->
+    <div id="proceed-modal" class="proceed-modal">
+      <!-- Modal content -->
+      <div class="proceed-modal-content">
+        You haven’t selected any course yet, Add your favourite courses to proceed
+        <button id="ok">ok</button>
+      </div>
+    </div>
+    
+    
+      <header class="disFlex">
+        <a href="https://tutedude.com"><img class="logo-main logo" src="feesbackassets/Tutedude.png" alt="logo" /></a>
+       
+        
+        <div class="buttons disFlex">
+          <!-- /*************************************name****************************/ -->
+          <div class="dropdown">
+            <div class="name" id="name-block" style="text-transform: capitalize"><?php echo $_SESSION['name']; ?></div>
+            <div class="dropdown-content name-dropdown">
+              <a href="profile.php" style="width: auto !important;">Profile</a>
+              <a onclick="signOut();" style="color: black;">Log out</a>
+            </div>
+          </div>
+                    <!-- /*************************************name****************************/ -->
+
+                    <div class="login-container">
+            <button class="login" id="logBtn">
+              <div class="gradText">login</div>
+            </button>
+          </div>
+          <div id="log" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close" id="log-close">&times;</span>
+              <form action="login.php" method="post">
+                <div class="container">
+                  <img class="logo" src="feesbackassets/Tutedude.png" alt="logo" />
+                  <a class="disFlex g-signin2" data-onsuccess="onSignIn" style="background-color: white; box-shadow: none;">
+                    <img
+                      class="google"
+                      src="feesbackassets/5847f9cbcef1014c0b5e48c8.png"
+                      alt=""
+                    />
+                    Google Sign In
+                  </a>
+                  <h3>OR</h3>
+
+                  <div class="border">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      class="modal-icon"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <style type="text/css">
+                        .modal-icon {
+                          stroke: url(#logMyGra) !important;
+                        }
+                      </style>
+                      <defs>
+                        <linearGradient id="logMyGra">
+                          <stop offset="5%" stop-color="#b671cf" />
+                          <stop offset="95%" stop-color="#3a30aa" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"
+                      />
+                    </svg>
+                    <input
+                      type="text"
+                      placeholder="Enter Email"
+                      name="email"
+                      required
+                    />
+                  </div>
+
+                  <div class="border">
+                    <svg
+                      class="modal-icon"
+                      width="24"
+                      height="24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <style type="text/css">
+                        .modal-icon {
+                          stroke: url(#logMyGrad);
+                        }
+                      </style>
+                      <defs>
+                        <linearGradient id="logMyGrad">
+                          <stop offset="5%" stop-color="#b671cf" />
+                          <stop offset="95%" stop-color="#3a30aa" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M12.804 9c1.038-1.793 2.977-3 5.196-3 3.311 0 6 2.689 6 6s-2.689 6-6 6c-2.219 0-4.158-1.207-5.196-3h-3.804l-1.506-1.503-1.494 1.503-1.48-1.503-1.52 1.503-3-3.032 2.53-2.968h10.274zm7.696 1.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5z"
+                      />
+                    </svg>
+                    <input
+                      type="password"
+                      placeholder="Password (min. 6 characters)"
+                      name="password"
+                      required
+                    />
+                  </div>
+                  <!-- <div class="checkandforgot">
+                    <div class="check disFlex">
+                      <label class="checkbox">
+                        <input type="checkbox" /><span class="checkmark"></span>
+                      </label>
+                      <span>Keep me Logged In</span>
+                    </div>
+                    <a href="">forgot Password?</a>
+                  </div> -->
+
+                  <button type="submit" class="signupbtn btn-fill">
+                    Login
+                  </button>
+                  <span class="orLogin"
+                    >New User?
+                    <strong onclick="orsign()">Register here</strong></span
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <button class="btn-fill sign-up" id="signBtn">sign up</button>
+
+          <!-- /****************signup modal**************************/ -->
+          <div id="sign" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close" id="sign-close">&times;</span>
+              <form action="registration.php" method="post">
+                <div class="container">
+                  <img class="logo" src="feesbackassets/Tutedude.png" alt="logo" />
+                  <!-- <a class="disFlex">
+                    <img
+                      class="google"
+                      src="feesbackassets/5847f9cbcef1014c0b5e48c8.png"
+                      alt=""
+                    />
+                    Sign Up with Google
+                  </a>
+                  <h3>OR</h3> -->
+                  <div class="border">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="modal-ico"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <style type="text/css">
+                        .modal-ico {
+                          stroke: url(#sigMyGra);
+                        }
+                      </style>
+                      <defs>
+                        <linearGradient id="sigMyGra">
+                          <stop offset="5%" stop-color="#b671cf" />
+                          <stop offset="95%" stop-color="#3a30aa" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z"
+                      />
+                    </svg>
+                    <input
+                      type="text"
+                      placeholder="Full Name"
+                      name="name"
+                      required
+                    />
+                  </div>
+                  <div class="border">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      class="modal-ico"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <style type="text/css">
+                        .modal-ico {
+                          stroke: url(#sigMyGrad);
+                        }
+                      </style>
+                      <defs>
+                        <linearGradient id="sigMyGrad">
+                          <stop offset="5%" stop-color="#b671cf" />
+                          <stop offset="95%" stop-color="#3a30aa" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"
+                      />
+                    </svg>
+                    <input
+                      type="text"
+                      placeholder="Enter Email"
+                      name="email"
+                      required
+                    />
+                  </div>
+
+                  <div class="border">
+                    <svg
+                      class="modal-ico"
+                      width="24"
+                      height="24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <style type="text/css">
+                        .modal-ico {
+                          stroke: url(#sigMyGrad);
+                        }
+                      </style>
+                      <defs>
+                        <linearGradient id="sigMyGrad">
+                          <stop offset="5%" stop-color="#b671cf" />
+                          <stop offset="95%" stop-color="#3a30aa" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M12.804 9c1.038-1.793 2.977-3 5.196-3 3.311 0 6 2.689 6 6s-2.689 6-6 6c-2.219 0-4.158-1.207-5.196-3h-3.804l-1.506-1.503-1.494 1.503-1.48-1.503-1.52 1.503-3-3.032 2.53-2.968h10.274zm7.696 1.5c.828 0 1.5.672 1.5 1.5s-.672 1.5-1.5 1.5-1.5-.672-1.5-1.5.672-1.5 1.5-1.5z"
+                      />
+                    </svg>
+                    <input
+                      type="password"
+                      placeholder="Password (min. 6 characters)"
+                      name="password"
+                      required
+                    />
+                  </div>
+
+                  <div class="border">
+                    <svg
+                      width="24"
+                      height="24"
+                      class="modal-ico"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                    >
+                      <style type="text/css">
+                        .modal-ico {
+                          stroke: url(#sigMyGrad);
+                        }
+                      </style>
+                      <defs>
+                        <linearGradient id="sigMyGrad">
+                          <stop offset="5%" stop-color="#b671cf" />
+                          <stop offset="95%" stop-color="#3a30aa" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        d="M18 24h-12c-1.104 0-2-.896-2-2v-20c0-1.104.896-2 2-2h12c1.104 0 2 .896 2 2v20c0 1.104-.896 2-2 2zm1-5.083h-14v3.083c0 .552.449 1 1 1h12c.552 0 1-.448 1-1v-3.083zm-7 3c-.553 0-1-.448-1-1s.447-1 1-1c.552 0 .999.448.999 1s-.447 1-.999 1zm7-17h-14v13h14v-13zm-1-3.917h-12c-.551 0-1 .449-1 1v1.917h14v-1.917c0-.551-.448-1-1-1zm-4.5 1.917h-3c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h3c.276 0 .5.224.5.5s-.224.5-.5.5z"
+                      /></svg><input
+                      type="number"
+                      placeholder="Phone Number"
+                      name="number"
+                      required
+                    />
+                  </div>
+
+                  <button type="submit" class="signupbtn btn-fill">
+                    Register
+                  </button>
+                  <span class="orLogin"
+                    >Already have an Account?
+
+                    <strong onclick="orlog()">Login</strong></span
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- *********************** -->
+          <div class="dropdown">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="menu dropbtn"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <style type="text/css">
+                .menu {
+                  stroke: var(--accent-color);
+                }
+              </style>
+              <defs>
+                <linearGradient id="MyGradient">
+                  <stop offset="5%" stop-color="#B771D0" />
+                  <stop offset="95%" stop-color="#8255C0" />
+                </linearGradient>
+              </defs>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <div class="dropdown-content">
+              <a href="">explore programs</a>
+              <a href="">offers</a>
+              <!-- <a href="">refund advantage</a> -->
+              <a href="">about us</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <h1>
+          Make the smart you, more smarter, <br />
+          By
+          <span
+            >adding 3 more courses <br />
+            at just ₹ 799</span
+          >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="31.7rem"
+            height="2.8rem"
+            viewBox="0 0 317 28"
+            fill="none"
+          >
+            <path
+              d="M307.624 1.88682C246.468 -5.79257 77.2942 15.7233 0 27.4999C107.138 16.4709 252.48 18.4358 314.666 20.8857C316.065 20.9408 317.017 19.5838 316.517 18.2761C314.972 14.238 312.276 8.03882 308.995 2.7787C308.685 2.28176 308.205 1.95979 307.624 1.88682Z"
+              fill="#D9D9D9"
+            />
+          </svg>
+        </h1>
+        <div class="hero-cards-container">
+          <div class="hero-card">
+            <h2>You Purchased</h2>
+            <span>1 course - ₹ 699</span>
+            <p>Feesback validity - 3 months</p>
+          </div>
+          <div class="hero-card hero-card-2">
+            <h2>Special Offer for you</h2>
+            <span>3 more courses - ₹ 799</span>
+            <p>Feesback validity - 1 year</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="carousel-sec">
+        <h1 class="gradText">TuteDude’s Exclusive Feesback Offer</h1>
+  
+        <div class="carousel pc-view">
+          <div class="wrapper" id="car-wrapper">
+            <!-- Slides -->
+            <div class="slide slide-1 active-slide">
+              <div class="questions">
+                <h3>What is FeesBack ?</h3>
+                <p>
+                  A limited time opportunity for rewarding our learners to upskill
+                  for free.
+                </p>
+                <ul>
+                  <li>
+                    UPSKILL
+                    <div>&check;</div>
+                  </li>
+                  <li>
+                    1 to 1 MENTORING
+                    <div>&check;</div>
+                  </li>
+                  <li>
+                    CERTIFICATION
+                    <div>&check;</div>
+                  </li>
+                  <li>
+                    EFFECTIVE FEE
+                    <div
+                      style="background: #800080; color: white"
+                      class="eff-fee"
+                    >
+                      0
+                    </div>
+                  </li>
+                </ul>
+                <strong
+                  >“ Now you can learn from Tutedude Effectively for FREE
+                  ”</strong
+                >
+              </div>
+            </div>
+            <div class="slide slide-2">
+              <div class="questions">
+                <h3>How does FeesBack work ?</h3>
+                <div class="question-flex">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="42"
+                      viewBox="0 0 30 42"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.75 39.7498C8.75 40.7915 9.58334 41.8332 10.8333 41.8332H19.1667C20.4167 41.8332 21.25 40.7915 21.25 39.7498V37.6665H8.75V39.7498ZM15 0.166504C6.875 0.166504 0.416672 6.62484 0.416672 14.7498C0.416672 19.7498 2.91667 24.1248 6.66667 26.6248V31.4165C6.66667 32.4582 7.5 33.4998 8.75 33.4998H21.25C22.5 33.4998 23.3333 32.4582 23.3333 31.4165V26.6248C27.0833 23.9165 29.5833 19.5415 29.5833 14.7498C29.5833 6.62484 23.125 0.166504 15 0.166504Z"
+                        fill="#800080"
+                      />
+                    </svg>
+                    <p>learn</p>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      viewBox="0 0 50 50"
+                      fill="none"
+                    >
+                      <rect width="50" height="50" rx="10" fill="#E2E2E2" />
+                    </svg>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      viewBox="0 0 50 50"
+                      fill="none"
+                    >
+                      <rect width="50" height="50" rx="10" fill="#E2E2E2" />
+                    </svg>
+                  </div>
+                </div>
+                <p>
+                  <strong
+                    >Enroll into your favourite TuteDude’s upskilling
+                    courses.</strong
+                  >
+                  Learn by doing interesting curated assignments and projects
+                  shared by your mentors from time to time you cover the topics.
+                </p>
+              </div>
+            </div>
+            <div class="slide slide-3">
+              <div class="questions">
+                <h3>How does FeesBack work ?</h3>
+                <div class="question-flex">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="42"
+                      viewBox="0 0 30 42"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.75 39.7498C8.75 40.7915 9.58334 41.8332 10.8333 41.8332H19.1667C20.4167 41.8332 21.25 40.7915 21.25 39.7498V37.6665H8.75V39.7498ZM15 0.166504C6.875 0.166504 0.416672 6.62484 0.416672 14.7498C0.416672 19.7498 2.91667 24.1248 6.66667 26.6248V31.4165C6.66667 32.4582 7.5 33.4998 8.75 33.4998H21.25C22.5 33.4998 23.3333 32.4582 23.3333 31.4165V26.6248C27.0833 23.9165 29.5833 19.5415 29.5833 14.7498C29.5833 6.62484 23.125 0.166504 15 0.166504Z"
+                        fill="#800080"
+                      />
+                    </svg>
+                    <p>learn</p>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      viewBox="0 0 50 50"
+                      fill="none"
+                    >
+                      <g clip-path="url(#clip0_9_79)">
+                        <path
+                          d="M24.9791 4.1665C13.4791 4.1665 4.16663 13.4998 4.16663 24.9998C4.16663 36.4998 13.4791 45.8332 24.9791 45.8332C36.5 45.8332 45.8333 36.4998 45.8333 24.9998C45.8333 13.4998 36.5 4.1665 24.9791 4.1665ZM25 41.6665C15.7916 41.6665 8.33329 34.2082 8.33329 24.9998C8.33329 15.7915 15.7916 8.33317 25 8.33317C34.2083 8.33317 41.6666 15.7915 41.6666 24.9998C41.6666 34.2082 34.2083 41.6665 25 41.6665Z"
+                          fill="#800080"
+                        />
+                        <path
+                          d="M26.0416 14.5835H22.9166V27.0835L33.8541 33.646L35.4166 31.0835L26.0416 25.521V14.5835Z"
+                          fill="#800080"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_9_79">
+                          <rect width="50" height="50" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <p>within 3 months</p>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      viewBox="0 0 50 50"
+                      fill="none"
+                    >
+                      <rect width="50" height="50" rx="10" fill="#E2E2E2" />
+                    </svg>
+                  </div>
+                </div>
+                <p>
+                  <strong
+                    >Enroll into your favourite TuteDude’s upskilling
+                    courses.</strong
+                  >
+                  Learn by doing interesting curated assignments and projects
+                  shared by your mentors from time to time you cover the topics.
+                </p>
+              </div>
+            </div>
+            <div class="slide slide-4">
+              <div class="questions">
+                <h3>How does FeesBack work ?</h3>
+                <div class="question-flex">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="42"
+                      viewBox="0 0 30 42"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.75 39.7498C8.75 40.7915 9.58334 41.8332 10.8333 41.8332H19.1667C20.4167 41.8332 21.25 40.7915 21.25 39.7498V37.6665H8.75V39.7498ZM15 0.166504C6.875 0.166504 0.416672 6.62484 0.416672 14.7498C0.416672 19.7498 2.91667 24.1248 6.66667 26.6248V31.4165C6.66667 32.4582 7.5 33.4998 8.75 33.4998H21.25C22.5 33.4998 23.3333 32.4582 23.3333 31.4165V26.6248C27.0833 23.9165 29.5833 19.5415 29.5833 14.7498C29.5833 6.62484 23.125 0.166504 15 0.166504Z"
+                        fill="#800080"
+                      />
+                    </svg>
+                    <p>learn</p>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      viewBox="0 0 50 50"
+                      fill="none"
+                    >
+                      <g clip-path="url(#clip0_9_79)">
+                        <path
+                          d="M24.9791 4.1665C13.4791 4.1665 4.16663 13.4998 4.16663 24.9998C4.16663 36.4998 13.4791 45.8332 24.9791 45.8332C36.5 45.8332 45.8333 36.4998 45.8333 24.9998C45.8333 13.4998 36.5 4.1665 24.9791 4.1665ZM25 41.6665C15.7916 41.6665 8.33329 34.2082 8.33329 24.9998C8.33329 15.7915 15.7916 8.33317 25 8.33317C34.2083 8.33317 41.6666 15.7915 41.6666 24.9998C41.6666 34.2082 34.2083 41.6665 25 41.6665Z"
+                          fill="#800080"
+                        />
+                        <path
+                          d="M26.0416 14.5835H22.9166V27.0835L33.8541 33.646L35.4166 31.0835L26.0416 25.521V14.5835Z"
+                          fill="#800080"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_9_79">
+                          <rect width="50" height="50" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    <p>within 3 months</p>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                    >
+                      <circle
+                        cx="20"
+                        cy="20"
+                        r="18.25"
+                        stroke="#800080"
+                        stroke-width="3.5"
+                      />
+                      <path
+                        d="M19.35 30L13.95 20.58V18.36H15.75C16.47 18.36 17.1 18.26 17.64 18.06C18.2 17.84 18.66 17.53 19.02 17.13C19.4 16.73 19.66 16.25 19.8 15.69H13.95V13.47H19.77C19.65 12.95 19.44 12.49 19.14 12.09C18.86 11.69 18.48 11.38 18 11.16C17.54 10.92 16.98 10.8 16.32 10.8H13.95V8.58H27.48V10.8H22.77C23.11 11.18 23.39 11.59 23.61 12.03C23.85 12.47 24.01 12.95 24.09 13.47H27.48V15.69H24.15C23.95 17.17 23.38 18.33 22.44 19.17C21.5 19.99 20.29 20.55 18.81 20.85L24.69 30H19.35Z"
+                        fill="#800080"
+                      />
+                    </svg>
+                    <p>get 100% Fees back</p>
+                  </div>
+                </div>
+                <p>
+                  <strong
+                    >Enroll into your favourite TuteDude’s upskilling
+                    courses.</strong
+                  >
+                  Learn by doing interesting curated assignments and projects
+                  shared by your mentors from time to time you cover the topics.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="slide-selector" id="slide-selector">
+            <button class="crsl-btn active-crsl-btn">1</button>
+            <button class="crsl-btn">2</button>
+            <button class="crsl-btn">3</button>
+            <button class="crsl-btn">4</button>
+          </div>
+        </div>
+        <div class="slider-container mview">
+          <div class="right-btn">🡢</div>
+          <div class="left-btn">🡠</div>
+          <!-- Slider main container -->
+          <div class="swiper skills-slider">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide">
+                <div class="questions">
+                  <h3>What is FeesBack ?</h3>
+                  <p>
+                    A limited time opportunity for rewarding our learners to
+                    upskill for free.
+                  </p>
+                  <ul>
+                    <li>
+                      UPSKILL
+                      <div>&check;</div>
+                    </li>
+                    <li>
+                      1 to 1 MENTORING
+                      <div>&check;</div>
+                    </li>
+                    <li>
+                      CERTIFICATION
+                      <div>&check;</div>
+                    </li>
+                    <li>
+                      EFFECTIVE FEE
+                      <div
+                        style="background: #800080; color: white"
+                        class="eff-fee"
+                      >
+                        0
+                      </div>
+                    </li>
+                  </ul>
+                  <strong
+                    >“ Now you can learn from Tutedude Effectively for FREE
+                    ”</strong
+                  >
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="questions">
+                  <h3>How does FeesBack work ?</h3>
+                  <div class="question-flex">
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="42"
+                        viewBox="0 0 30 42"
+                        fill="none"
+                      >
+                        <path
+                          d="M8.75 39.7498C8.75 40.7915 9.58334 41.8332 10.8333 41.8332H19.1667C20.4167 41.8332 21.25 40.7915 21.25 39.7498V37.6665H8.75V39.7498ZM15 0.166504C6.875 0.166504 0.416672 6.62484 0.416672 14.7498C0.416672 19.7498 2.91667 24.1248 6.66667 26.6248V31.4165C6.66667 32.4582 7.5 33.4998 8.75 33.4998H21.25C22.5 33.4998 23.3333 32.4582 23.3333 31.4165V26.6248C27.0833 23.9165 29.5833 19.5415 29.5833 14.7498C29.5833 6.62484 23.125 0.166504 15 0.166504Z"
+                          fill="#800080"
+                        />
+                      </svg>
+                      <p>learn</p>
+                    </div>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                      >
+                        <rect width="50" height="50" rx="10" fill="#E2E2E2" />
+                      </svg>
+                    </div>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                      >
+                        <rect width="50" height="50" rx="10" fill="#E2E2E2" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p>
+                    <strong
+                      >Enroll into your favourite TuteDude’s upskilling
+                      courses.</strong
+                    >
+                    Learn by doing interesting curated assignments and projects
+                    shared by your mentors from time to time you cover the topics.
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="questions">
+                  <h3>How does FeesBack work ?</h3>
+                  <div class="question-flex">
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="42"
+                        viewBox="0 0 30 42"
+                        fill="none"
+                      >
+                        <path
+                          d="M8.75 39.7498C8.75 40.7915 9.58334 41.8332 10.8333 41.8332H19.1667C20.4167 41.8332 21.25 40.7915 21.25 39.7498V37.6665H8.75V39.7498ZM15 0.166504C6.875 0.166504 0.416672 6.62484 0.416672 14.7498C0.416672 19.7498 2.91667 24.1248 6.66667 26.6248V31.4165C6.66667 32.4582 7.5 33.4998 8.75 33.4998H21.25C22.5 33.4998 23.3333 32.4582 23.3333 31.4165V26.6248C27.0833 23.9165 29.5833 19.5415 29.5833 14.7498C29.5833 6.62484 23.125 0.166504 15 0.166504Z"
+                          fill="#800080"
+                        />
+                      </svg>
+                      <p>learn</p>
+                    </div>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                      >
+                        <g clip-path="url(#clip0_9_79)">
+                          <path
+                            d="M24.9791 4.1665C13.4791 4.1665 4.16663 13.4998 4.16663 24.9998C4.16663 36.4998 13.4791 45.8332 24.9791 45.8332C36.5 45.8332 45.8333 36.4998 45.8333 24.9998C45.8333 13.4998 36.5 4.1665 24.9791 4.1665ZM25 41.6665C15.7916 41.6665 8.33329 34.2082 8.33329 24.9998C8.33329 15.7915 15.7916 8.33317 25 8.33317C34.2083 8.33317 41.6666 15.7915 41.6666 24.9998C41.6666 34.2082 34.2083 41.6665 25 41.6665Z"
+                            fill="#800080"
+                          />
+                          <path
+                            d="M26.0416 14.5835H22.9166V27.0835L33.8541 33.646L35.4166 31.0835L26.0416 25.521V14.5835Z"
+                            fill="#800080"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_9_79">
+                            <rect width="50" height="50" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <p>within 3 months</p>
+                    </div>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                      >
+                        <rect width="50" height="50" rx="10" fill="#E2E2E2" />
+                      </svg>
+                    </div>
+                  </div>
+                  <p>
+                    <strong
+                      >Enroll into your favourite TuteDude’s upskilling
+                      courses.</strong
+                    >
+                    Learn by doing interesting curated assignments and projects
+                    shared by your mentors from time to time you cover the topics.
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="questions">
+                  <h3>How does FeesBack work ?</h3>
+                  <div class="question-flex">
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="30"
+                        height="42"
+                        viewBox="0 0 30 42"
+                        fill="none"
+                      >
+                        <path
+                          d="M8.75 39.7498C8.75 40.7915 9.58334 41.8332 10.8333 41.8332H19.1667C20.4167 41.8332 21.25 40.7915 21.25 39.7498V37.6665H8.75V39.7498ZM15 0.166504C6.875 0.166504 0.416672 6.62484 0.416672 14.7498C0.416672 19.7498 2.91667 24.1248 6.66667 26.6248V31.4165C6.66667 32.4582 7.5 33.4998 8.75 33.4998H21.25C22.5 33.4998 23.3333 32.4582 23.3333 31.4165V26.6248C27.0833 23.9165 29.5833 19.5415 29.5833 14.7498C29.5833 6.62484 23.125 0.166504 15 0.166504Z"
+                          fill="#800080"
+                        />
+                      </svg>
+                      <p>learn</p>
+                    </div>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="50"
+                        height="50"
+                        viewBox="0 0 50 50"
+                        fill="none"
+                      >
+                        <g clip-path="url(#clip0_9_79)">
+                          <path
+                            d="M24.9791 4.1665C13.4791 4.1665 4.16663 13.4998 4.16663 24.9998C4.16663 36.4998 13.4791 45.8332 24.9791 45.8332C36.5 45.8332 45.8333 36.4998 45.8333 24.9998C45.8333 13.4998 36.5 4.1665 24.9791 4.1665ZM25 41.6665C15.7916 41.6665 8.33329 34.2082 8.33329 24.9998C8.33329 15.7915 15.7916 8.33317 25 8.33317C34.2083 8.33317 41.6666 15.7915 41.6666 24.9998C41.6666 34.2082 34.2083 41.6665 25 41.6665Z"
+                            fill="#800080"
+                          />
+                          <path
+                            d="M26.0416 14.5835H22.9166V27.0835L33.8541 33.646L35.4166 31.0835L26.0416 25.521V14.5835Z"
+                            fill="#800080"
+                          />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_9_79">
+                            <rect width="50" height="50" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <p>within 3 months</p>
+                    </div>
+                    <div>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="40"
+                        height="40"
+                        viewBox="0 0 40 40"
+                        fill="none"
+                      >
+                        <circle
+                          cx="20"
+                          cy="20"
+                          r="18.25"
+                          stroke="#800080"
+                          stroke-width="3.5"
+                        />
+                        <path
+                          d="M19.35 30L13.95 20.58V18.36H15.75C16.47 18.36 17.1 18.26 17.64 18.06C18.2 17.84 18.66 17.53 19.02 17.13C19.4 16.73 19.66 16.25 19.8 15.69H13.95V13.47H19.77C19.65 12.95 19.44 12.49 19.14 12.09C18.86 11.69 18.48 11.38 18 11.16C17.54 10.92 16.98 10.8 16.32 10.8H13.95V8.58H27.48V10.8H22.77C23.11 11.18 23.39 11.59 23.61 12.03C23.85 12.47 24.01 12.95 24.09 13.47H27.48V15.69H24.15C23.95 17.17 23.38 18.33 22.44 19.17C21.5 19.99 20.29 20.55 18.81 20.85L24.69 30H19.35Z"
+                          fill="#800080"
+                        />
+                      </svg>
+                      <p>get 100% Fees back</p>
+                    </div>
+                  </div>
+                  <p>
+                    <strong
+                      >Enroll into your favourite TuteDude’s upskilling
+                      courses.</strong
+                    >
+                    Learn by doing interesting curated assignments and projects
+                    shared by your mentors from time to time you cover the topics.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="validity-sec">
+        <h1 class="gradText">FeesBack Offer Validity</h1>
+        <div class="validity-container">
+          <div class="calc-cont">
+            <p>Check Duration for FeesBack Offer</p>
+          <div class="calculation">
+<div class="no-dropdown">
+            <button type="button" class="collapsible">4</button>
+            <div class="content" id="content">
+              <div class="no-btn active-content-btn">4</div>
+              <div class="no-btn">5</div>
+              <div class="no-btn">6</div>
+              <div class="no-btn">7</div>
+            </div>
+          </div>
+          <div class="multiply">x</div>
+<div class="three">3</div>
+<div class="equal">=</div>
+<div class="result">12</div>
+          </div>
+          </div>
+          
+          
+         <div class="feesback-info">
+          <svg xmlns="http://www.w3.org/2000/svg" width="2.6rem" height="2.6rem" viewBox="0 0 26 26" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 9.55219 1.36964 6.24558 3.80761 3.80761C6.24558 1.36964 9.55219 0 13 0C16.4478 0 19.7544 1.36964 22.1924 3.80761C24.6304 6.24558 26 9.55219 26 13C26 16.4478 24.6304 19.7544 22.1924 22.1924C19.7544 24.6304 16.4478 26 13 26C9.55219 26 6.24558 24.6304 3.80761 22.1924C1.36964 19.7544 0 16.4478 0 13H0ZM12.2581 18.564L19.7427 9.20747L18.3907 8.12587L12.0085 16.1009L7.488 12.3344L6.37867 13.6656L12.2581 18.5657V18.564Z" fill="url(#paint0_linear_1_2553)"/>
+            <defs>
+            <linearGradient id="paint0_linear_1_2553" x1="26" y1="13" x2="1.38713e-07" y2="13" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#800080"/>
+            <stop offset="1" stop-color="#FF864C"/>
+            </linearGradient>
+            </defs>
+            </svg>
+          <p> Complete all the courses in your pack within <strong>12 months</strong> and claim 100% FeesBack
+         </p></div>
+
+      </section>
+
+      <section class="feesback-ext">
+<div class="ref-cont">
+  <div class="ref-1"><div></div>Completed</div>
+  <div class="ref-2"><div></div>Not Completed</div>
+</div>
+      
+      <div class="avail">Avail partial FeesBack as well !!</div>
+      <div class="piechart">
+        <div class="black-text">
+          <h3>₹ 1,499</h3>
+          <p>Price you paid for any 4 course pack</p>
+      </div>
+      <div class="white-text">
+        <h3> ₹375 </h3>
+        <span> / COURSE</span>
+    </div>
+      </div>
+
+      <div class="access-info">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2.6rem" height="2.6rem" viewBox="0 0 26 26" fill="none">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13C0 9.55219 1.36964 6.24558 3.80761 3.80761C6.24558 1.36964 9.55219 0 13 0C16.4478 0 19.7544 1.36964 22.1924 3.80761C24.6304 6.24558 26 9.55219 26 13C26 16.4478 24.6304 19.7544 22.1924 22.1924C19.7544 24.6304 16.4478 26 13 26C9.55219 26 6.24558 24.6304 3.80761 22.1924C1.36964 19.7544 0 16.4478 0 13H0ZM12.2581 18.564L19.7427 9.20747L18.3907 8.12587L12.0085 16.1009L7.488 12.3344L6.37867 13.6656L12.2581 18.5657V18.564Z" fill="url(#paint0_linear_1_2553)"/>
+          <defs>
+          <linearGradient id="paint0_linear_1_2553" x1="26" y1="13" x2="1.38713e-07" y2="13" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#800080"/>
+          <stop offset="1" stop-color="#FF864C"/>
+          </linearGradient>
+          </defs>
+          </svg>
+        <p>
+        <strong>Lifetime access</strong> on each course in the pack even after FeesBack
+      </div>
+</section>
+      <section class="course-sec">
+        <h1 class="gradText">Select  your Courses</h1>
+        <form action="#" name="form1" class="courseform" method="post">
+        <div class="course-grid">
+          <div class="course disFlex">
+            Web Development with PHP / MySQL
+            <div class="disFlex">
+            <a href="webdevelopment"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="webdevelopment" value="webdevelopment" style="display: none;"/>
+          <label for="webdevelopment">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+            Web Development with MERN Stack
+            <div class="disFlex">
+            <a href="mernstack"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="mernstack" value="mernstack" style="display: none;"/>
+          <label for="mernstack">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          App development
+            <div class="disFlex">
+            <a href="appdevelopment"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="appdevelopment" value="appdevelopment" style="display: none;"/>
+          <label for="appdevelopment">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          React Native
+            <div class="disFlex">
+            <a href="reactnative"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="reactnative" value="reactnative" style="display: none;"/>
+          <label for="reactnative">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          Java
+            <div class="disFlex">
+            <a href="java"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="java" value="java" style="display: none;"/>
+          <label for="java">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          Python
+            <div class="disFlex">
+            <a href="python"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="python" value="python" style="display: none;"/>
+          <label for="python">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+            C++
+            <div class="disFlex">
+            <a href="cpp"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="cpp" value="cpp" style="display: none;"/>
+          <label for="cpp">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+            Data Science
+            <div class="disFlex">
+            <a href="datascience"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="datascience" value="datascience" style="display: none;"/>
+          <label for="datascience">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          Data Structures
+            <div class="disFlex">
+            <a href="datastructure"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="datastructure" value="datastructure" style="display: none;"/>
+          <label for="datastructure">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          Competitive Programming
+            <div class="disFlex">
+            <a href="competitiveprogramming"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="competitiveprogramming" value="competitiveprogramming" style="display: none;"/>
+          <label for="competitiveprogramming">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+            Ethical Hacking
+            <div class="disFlex">
+            <a href="ethicalhacking"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="ethicalhacking" value="ethicalhacking" style="display: none;"/>
+          <label for="ethicalhacking">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <!-- <div class="course disFlex">
+          Entrepreneurship
+            <div class="disFlex">
+            <a href="entrepreneurship"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="entrepreneurship" value="entrepreneurship" style="display: none;"/>
+          <label for="entrepreneurship">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div> -->
+          <div class="course disFlex">
+          Digital Marketing
+            <div class="disFlex">
+            <a href="digitalmarketing"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="digitalmarketing" value="digitalmarketing" style="display: none;"/>
+          <label for="digitalmarketing">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          Stock Market Investing
+            <div class="disFlex">
+            <a href="fundamentalanalysis"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="fundamentalanalysis" value="fundamentalanalysis" style="display: none;"/>
+          <label for="fundamentalanalysis">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          Stock Market Trading
+            <div class="disFlex">
+            <a href="technicalanalysis"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="technicalanalysis" value="technicalanalysis" style="display: none;"/>
+          <label for="technicalanalysis">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          Financial Modelling & Valuation
+            <div class="disFlex">
+            <a href="financialmodelling"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="financialmodelling" value="financialmodelling" style="display: none;"/>
+          <label for="financialmodelling">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          UI/UX Designing
+            <div class="disFlex">
+            <a href="uiux"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="uiux" value="uiux" style="display: none;"/>
+          <label for="uiux">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          Photoshop
+            <div class="disFlex">
+            <a href="photoshop"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="photoshop" value="photoshop" style="display: none;"/>
+          <label for="photoshop">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          Adobe Illustrator
+            <div class="disFlex">
+            <a href="illustrator"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="illustrator" value="illustrator" style="display: none;"/>
+          <label for="illustrator">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          Premiere pro
+            <div class="disFlex">
+            <a href="premierepro"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="premierepro" value="premierepro" style="display: none;"/>
+          <label for="premierepro">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <div class="course disFlex">
+          After Effects
+            <div class="disFlex">
+            <a href="aftereffects"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="aftereffects" value="aftereffects" style="display: none;"/>
+          <label for="aftereffects">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div>
+          <!-- <div class="course disFlex">
+          Photography
+            <div class="disFlex">
+            <a href="photography"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="photography" value="photography" style="display: none;"/>
+          <label for="photography">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div> -->
+
+          <!-- <div class="course disFlex">
+          Guitar
+            <div class="disFlex">
+            <a href="guitar"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="guitar" value="guitar" style="display: none;"/>
+          <label for="guitar">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div> -->
+          
+          <!-- <div class="course disFlex">
+          Singing
+            <div class="disFlex">
+            <a href="singing"><div class="add-course view">
+              <svg xmlns="http://www.w3.org/2000/svg" width="3rem" height="2.1rem" viewBox="0 0 30 21" fill="none">
+              <path d="M15 0.5C8.33333 0.5 2.64 4.64667 0.333328 10.5C2.64 16.3533 8.33333 20.5 15 20.5C21.6667 20.5 27.36 16.3533 29.6667 10.5C27.36 4.64667 21.6667 0.5 15 0.5ZM15 17.1667C11.32 17.1667 8.33333 14.18 8.33333 10.5C8.33333 6.82 11.32 3.83333 15 3.83333C18.68 3.83333 21.6667 6.82 21.6667 10.5C21.6667 14.18 18.68 17.1667 15 17.1667ZM15 6.5C12.7867 6.5 11 8.28667 11 10.5C11 12.7133 12.7867 14.5 15 14.5C17.2133 14.5 19 12.7133 19 10.5C19 8.28667 17.2133 6.5 15 6.5Z" fill="currentColor"/>
+              </svg>
+              view
+            </div>
+          </a>
+          <input type="checkbox" id="singing" value="singing" style="display: none;"/>
+          <label for="singing">
+              <div class="add-course">
+                <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="1.9rem" viewBox="0 0 20 19" fill="currentcolor" class="add">
+                  <path d="M19.3333 10.8333H11.3333V18.8333H8.66667V10.8333H0.666672V8.16666H8.66667V0.166656H11.3333V8.16666H19.3333V10.8333Z" fill="currentColor"/>
+                  </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="2rem" height="0.3rem" viewBox="0 0 20 3" fill="none" class="rem" style="display: none;margin-top:0.8rem;margin-bottom:0.8rem">
+                    <path d="M8.66671 2.83341L0.666708 2.83341V0.166748L8.66671 0.166748L11.3334 0.166748L19.3334 0.166748V2.83341L11.3334 2.83341L8.66671 2.83341Z" fill="currentColor"/>
+                    </svg>
+               <span>add</span> 
+            </div>
+            </label>
+          </div>
+          </div> -->
+          <div class="proceed">
+      <div>
+        <span id="number">0</span>
+        <p>courses</p>
+      </div>
+      <div>
+        <sup>₹</sup><span class="price">0</span>
+        <p>total</p>
+      </div>
+      <!-- <a href="" id="proceed-link">link to proceed</a> -->
+      <button id="proceed-btn" type="submit" name="submit" value="submit">
+        proceed
+      </button>
+    </div>
+            </form>
+        </div>
+
+      </section>
+
+
+      <!-- <section class="other-courses-sec">
+        <h1 class="gradText">Checkout our All Access Pack</h1>
+
+          <div class="other-courses-card">
+            <div class="course-price">
+              <span class="big">20</span>
+              <p>All courses @ &#8377;4,499/-</p>              <div class="feesback-offer">FEESBACK OFFER valid for Lifetime Access</div>
+
+            </div>
+              <div class="save">save ₹ 10,180/-</div>
+            
+            <a href="allaccess"><button class="btn-course">Know More</button></a>
+          </div>
+      </section> -->
+      <section class="pack-sec">
+        <div class="pack-ques">
+          <h2>
+            Interested in the <br />
+            All Courses ?
+          </h2>
+          <p>
+            Well now can be perfect time to upskill and become the pro everyone is
+            looking for
+          </p>
+          <span class="pc-view">*Lifetime validity for Feesback</span>
+        </div>
+        <div class="pack">
+          <div class="side-note">Avail FEESBACK in 1 year</div>
+          <div class="main-pack-content">
+            <h2>
+              All Access Pack
+              <svg
+                class="star-right"
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.8rem"
+                height="1.7rem"
+                viewBox="0 0 18 17"
+                fill="none"
+              >
+                <path
+                  d="M8.52447 0.463525C8.67415 0.00287008 9.32585 0.00287008 9.47553 0.463525L11.1329 5.56434C11.1998 5.77035 11.3918 5.90983 11.6084 5.90983H16.9717C17.4561 5.90983 17.6575 6.52964 17.2656 6.81434L12.9266 9.96681C12.7514 10.0941 12.678 10.3198 12.745 10.5258L14.4023 15.6266C14.552 16.0873 14.0248 16.4704 13.6329 16.1857L9.29389 13.0332C9.11865 12.9059 8.88135 12.9059 8.70611 13.0332L4.3671 16.1857C3.97524 16.4704 3.448 16.0873 3.59768 15.6266L5.25503 10.5258C5.32197 10.3198 5.24864 10.0941 5.07339 9.96681L0.734384 6.81434C0.342527 6.52964 0.543915 5.90983 1.02828 5.90983H6.39159C6.6082 5.90983 6.80018 5.77035 6.86712 5.56434L8.52447 0.463525Z"
+                  fill="url(#paint0_linear_29_200)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_29_200"
+                    x1="19"
+                    y1="8.99999"
+                    x2="-1"
+                    y2="8.99999"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#800080" />
+                    <stop offset="1" stop-color="#FF864C" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <svg
+                class="star-left"
+                xmlns="http://www.w3.org/2000/svg"
+                width="1.8rem"
+                height="1.7rem"
+                viewBox="0 0 18 17"
+                fill="none"
+              >
+                <path
+                  d="M8.52447 0.463525C8.67415 0.00287008 9.32585 0.00287008 9.47553 0.463525L11.1329 5.56434C11.1998 5.77035 11.3918 5.90983 11.6084 5.90983H16.9717C17.4561 5.90983 17.6575 6.52964 17.2656 6.81434L12.9266 9.96681C12.7514 10.0941 12.678 10.3198 12.745 10.5258L14.4023 15.6266C14.552 16.0873 14.0248 16.4704 13.6329 16.1857L9.29389 13.0332C9.11865 12.9059 8.88135 12.9059 8.70611 13.0332L4.3671 16.1857C3.97524 16.4704 3.448 16.0873 3.59768 15.6266L5.25503 10.5258C5.32197 10.3198 5.24864 10.0941 5.07339 9.96681L0.734384 6.81434C0.342527 6.52964 0.543915 5.90983 1.02828 5.90983H6.39159C6.6082 5.90983 6.80018 5.77035 6.86712 5.56434L8.52447 0.463525Z"
+                  fill="url(#paint0_linear_29_200)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_29_200"
+                    x1="19"
+                    y1="8.99999"
+                    x2="-1"
+                    y2="8.99999"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#800080" />
+                    <stop offset="1" stop-color="#FF864C" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </h2>
+            <div class="pack-info pi-2">
+              <p>23 courses</p>
+              <div></div>
+              <h3>₹ 4499</h3>
+            </div>
+            <span>save ₹ 10,578/-</span>
+            <a href=""><button>Know more</button></a>
+          </div>
+          <div class="left-circles">
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+          </div>
+          <div class="right-circles">
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+            <div class="circles"></div>
+          </div>
+        </div>
+        <span class="mview">*Lifetime validity for Feesback</span>
+      </section>
+
+      <section class="query" id="havequery">
+          <h1 class="gradText">Have Any Query?</h1>
+          <div class="query-grid">
+            <div class="query-asked">
+              <div class="query-ques">
+              <p>Why should I opt for Tutedude?</p>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  class="plus"
+                >
+                <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" class="minus"><path d="M0 10h24v4h-24z"/></svg>
+                </svg>
+              </button></div>
+              <div class="query-ans hidden">
+                Tutedude provides you the professional curated content by Indian instructors along with live doubt solving and personal one to one mentorship which you won't find anywhere else.
+                And amazingly, you learn for Free if you are enrolled under Feesback offer.
+              </div>
+            </div>
+            <div class="query-asked">
+              <div class="query-ques">
+              <p>What is the validity of the courses and when can I watch them?</p>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  class="plus"
+                >
+                <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" class="minus">
+                <path d="M0 10h24v4h-24z"/></svg>
+                </svg>
+              </button></div>
+              <div class="query-ans hidden">
+              You will have lifetime access to the courses and can watch the lectures anytime you want. So it is totally flexible and provides you the comfort of learning anytime anywhere. Also as the technologies progress we keep on updating our courses so you get the access to them too.
+              </div>
+            </div>
+            <div class="query-asked">
+              <div class="query-ques">
+              <p>Will my course validity expire after I receive the Feesback amount ?</p>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  class="plus"
+                >
+                <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" class="minus">
+                <path d="M0 10h24v4h-24z"/></svg>
+                </svg>
+              </button></div>
+              <div class="query-ans hidden">
+              No, you will still have the lifetime access on your courses along with mentor's support, even after you have received your Feesback amount.
+              </div>
+            </div>
+            <div class="query-asked">
+              <div class="query-ques">
+              <p>How will I know that feesback offer has been applied ?</p>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  class="plus"
+                >
+                <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" class="minus">
+                <path d="M0 10h24v4h-24z"/></svg>
+                </svg>
+              </button></div>
+              <div class="query-ans hidden">
+              The Feesback offer is running currently on our platform for a limited time, and you are automatically enrolled through the Feesback offer. So you are assured that you have currently been enrolled through Feesback offer.
+              </div>
+            </div>
+            <div class="query-asked">
+              <div class="query-ques">
+              <p>How will receive my Feesback amount ?</p>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  class="plus"
+                >
+                <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" class="minus">
+                <path d="M0 10h24v4h-24z"/></svg>
+                </svg>
+              </button></div>
+              <div class="query-ans hidden">
+              You will receive the Feesback amount through the original mode of payment on completing the courses and submitting the assignments/exercises/projects covered within the time period.
+              </div>
+            </div>
+            <div class="query-asked">
+              <div class="query-ques">
+              <p>How can I access my Mentors?</p>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  class="plus"
+                >
+                <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" class="minus">
+                <path d="M0 10h24v4h-24z"/></svg>
+                </svg>
+              </button></div>
+              <div class="query-ans hidden">
+              We have a chat system support in the course section, where you can ask your doubts regarding your courses enrolled. Mentors are available from 10am to 10 pm, and will help you to get your doubts solved.
+              </div>
+            </div>
+            <div class="query-asked">
+              <div class="query-ques">
+              <p>Why don't you provide live classes and why should I prefer recorded lectures?</p>
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="white"
+                  class="plus"
+                >
+                <path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" class="minus">
+                <path d="M0 10h24v4h-24z"/></svg>
+                </svg>
+              </button>
+            </div>
+              <div class="query-ans hidden">
+              Tutedude doesn't believe in the idea of teaching 100 students in 1 class where the student sometimes feels hesitant to ask some doubts and where the other student feels that this student is wasting his time by asking silly doubts. Moreover in this busy world it becomes difficult to attend the classes on a specific schedule. So we combined the benefits and provide you interactive video lectures and live one on one doubt solving to learn at your own pace and comfort. 
+              </div>
+            </div>
+          </div>
+          <!-- <div class="search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="search-ico"
+              fill="none"
+              viewBox="0 0 22 22"
+              stroke="currentColor"
+              width="2.5rem"
+            >
+              <style type="text/css">
+                .search-ico {
+                  stroke: url(#MyGradient);
+                }
+              </style>
+              <defs>
+                <linearGradient id="MyGradient">
+                  <stop offset="5%" stop-color="#b671cf" />
+                  <stop offset="95%" stop-color="#3a30aa" />
+                </linearGradient>
+              </defs>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="{3}"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            <input
+              type="text"
+              name="search"
+              placeholder="Type query here"
+            /><button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                stroke="none"
+                fill="white"
+              >
+                <path
+                  d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"
+                />
+              </svg>
+            </button>
+          </div> -->
+        </section>
+        <!-- ............................................................footer..................................................... -->
+        <footer>
+          <div>
+            <h2>Other Links</h2>
+            <ul>
+              <li><a href="../Footer/Aboutus.html">About us</a></li>
+              <li><a href="../Footer/contactus.php">Contact us</a></li>
+              <li><a href="../Footer/privacy.html">Privacy Policy</a></li>
+              <li><a href="../Footer/termsofuse.html">Terms of Use</a></li>
+              <li><a href="../Footer/refund.html">Refund Policy</a></li>
+            </ul>
+          </div>
+    
+          <div>
+            <h2 class="social-links">Social Links</h2>
+            <ul class="icons">
+          <li>
+            <a href="https://www.linkedin.com/company/tutedudeofficial/"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="white"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                /></svg></a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/tutedude.officials/"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="white"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+                /></svg></a>
+          </li>
+          <li>
+            <a href="https://instagram.com/tutedudeofficial"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="white"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                /></svg></a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/channel/UC2NQ2Ovazltz1-PYLmT7jxQ?view_as=subscriber"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="white"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+                /></svg></a>
+          </li>
+        </ul>
+          </div>
+          <div>
+            <h2>Contact</h2>
+            <ul>
+              <li><a href="">support@tutedude.com</a></li>
+              <li><a href="">+91 7988800474</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Registered Office</h2>
+            <ul>
+              <li><p>1411/14 Indira Colony Hansi, Hisar, Haryana 125033, India</p></li>            </ul>
+          </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
+    <script src="feesbackassets/packscript.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+
+  </body>
+</html>
