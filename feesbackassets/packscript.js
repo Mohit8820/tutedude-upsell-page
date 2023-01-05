@@ -179,7 +179,7 @@ if (crslBtn) {
       var tstr = "translateY(" + t + "%)";
       document.getElementById("slide-selector").style.transform = tstr;
       document.getElementById("car-wrapper").scrollTop = convertRemToPixels(
-        38.4 * curr
+        37.4 * curr
       );
     });
   }

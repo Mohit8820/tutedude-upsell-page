@@ -2002,6 +2002,46 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
-
+    <script>
+      $(function() {
+       $('input').prop('checked', false);
+     // alert($(".bhai").val());	
+     $("input").click(function(){
+ 
+       if(!$(this).is(':checked')){
+ 
+                 $(this).next('label').children(".add-course").children(".add").css({"display":"block", "color" : "#800080"});
+                 $(this).next('label').children(".add-course").children(".rem").css("display", "none");
+                 $(this).next('label').children(".add-course").children("span").text("add");
+                 $(this).next('label').children(".add-course").css({"marginLeft":"4.8rem","color":"#800080"});
+                 $(this).next('label').parent(".disFlex").parent(".course").css({"background-position": "right", "color":"#800080"});
+                 $(this).next('label').parent(".disFlex").children("a").children(".add-course").css("color","#800080");
+                 
+         
+         
+      
+ 
+       } 
+       if($(this).is(':checked')) {
+         // $(.add-course).css('color','black');
+         // alert(" is checked!");
+ 
+         $(this).next('label').children(".add-course").children(".add").css("display", "none");
+         $(this).next('label').children(".add-course").children(".rem").css({"display":"block", "color" : "white"});
+         $(this).next('label').children(".add-course").children("span").text("remove");
+         $(this).next('label').children(".add-course").css({"marginLeft":"2rem","color":"white"});
+         $(this).next('label').parent(".disFlex").parent(".course").css({"background-position":"inherit", "color":"white"});
+         $(this).next('label').parent(".disFlex").children("a").children(".add-course").css("color","white");
+         // $(this).next('label').parent(".disFlex").parent(".course").css();
+         // $(this).next('label').text("remove");
+         // $(this).next('label').css('color', 'white');
+         // $(this).next('label').css('background-color', '#AE6CCC');
+       }
+     
+    
+     });
+     
+     });
+     </script>
   </body>
 </html>
